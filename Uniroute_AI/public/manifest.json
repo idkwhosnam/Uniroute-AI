@@ -1,0 +1,16 @@
+{
+  "name": "UniRoute AI",
+  "short_name": "UniRoute",
+  "description": "Định hướng & Lộ trình Xét tuyển Đại học",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0F172A",
+  "icons": [
+    {
+      "src": "https://db.com/logo_v2.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
