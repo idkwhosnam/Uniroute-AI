@@ -1,1 +1,0 @@
- tổng hợp cho tôi cơ chế Rule base hiện tại của hệ thống (tất cả các chức năng đang có rule base AI đề xuất/ AI phân tích/ AI tạo kế hoạch ôn tập/ AI nhận xét) -> sử dụng dữ liệu gì, công thức tính thế nào

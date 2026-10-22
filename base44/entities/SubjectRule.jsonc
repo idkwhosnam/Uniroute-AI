@@ -1,0 +1,109 @@
+{
+  "name": "SubjectRule",
+  "type": "object",
+  "properties": {
+    "year": {
+      "type": "number",
+      "description": "N\u0103m \u00e1p d\u1ee5ng quy ch\u1ebf"
+    },
+    "school_code": {
+      "type": "string",
+      "description": "M\u00e3 tr\u01b0\u1eddng THPT, ho\u1eb7c 'general'"
+    },
+    "school_name": {
+      "type": "string",
+      "description": "T\u00ean tr\u01b0\u1eddng THPT"
+    },
+    "compulsory_subjects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "M\u00e3 m\u00f4n b\u1eaft bu\u1ed9c (8 m\u00f4n)"
+    },
+    "elective_subjects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "M\u00e3 m\u00f4n t\u1ef1 ch\u1ecdn (9 m\u00f4n, ch\u1ecdn 4)"
+    },
+    "elective_count": {
+      "type": "number",
+      "default": 4,
+      "description": "S\u1ed1 m\u00f4n t\u1ef1 ch\u1ecdn ph\u1ea3i ch\u1ecdn"
+    },
+    "clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "subjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "code",
+          "name",
+          "subjects"
+        ]
+      },
+      "description": "3 c\u1ee5m chuy\u00ean \u0111\u1ec1 h\u1ecdc t\u1eadp"
+    },
+    "data_status": {
+      "type": "string",
+      "enum": [
+        "MOCK",
+        "UNVERIFIED",
+        "VERIFIED"
+      ],
+      "default": "MOCK"
+    },
+    "source_name": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "is_mock": {
+      "type": "boolean",
+      "default": true
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "year",
+    "compulsory_subjects",
+    "elective_subjects",
+    "clusters"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "name": "AdmissionTarget",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "enum": [
+        "Dream",
+        "Match",
+        "Safe"
+      ],
+      "description": "Ph\u00e2n lo\u1ea1i m\u1ee5c ti\u00eau"
+    },
+    "university_code": {
+      "type": "string"
+    },
+    "university_name": {
+      "type": "string"
+    },
+    "major_code": {
+      "type": "string"
+    },
+    "major_name": {
+      "type": "string"
+    },
+    "program_id": {
+      "type": "string",
+      "description": "Tham chi\u1ebfu AdmissionProgram"
+    },
+    "year": {
+      "type": "number"
+    },
+    "method": {
+      "type": "string"
+    },
+    "method_label": {
+      "type": "string"
+    },
+    "combination": {
+      "type": "string"
+    },
+    "combination_subjects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "benchmark_score": {
+      "type": "number"
+    },
+    "benchmark_scale": {
+      "type": "number",
+      "default": 30
+    },
+    "benchmark_year": {
+      "type": "number"
+    },
+    "target_score": {
+      "type": "number",
+      "description": "\u0110i\u1ec3m m\u1ee5c ti\u00eau h\u1ecdc sinh \u0111\u1eb7t"
+    },
+    "target_scale": {
+      "type": "number",
+      "default": 30
+    },
+    "conditions": {
+      "type": "string"
+    },
+    "source_name": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "data_status": {
+      "type": "string",
+      "enum": [
+        "MOCK",
+        "UNVERIFIED",
+        "VERIFIED"
+      ],
+      "default": "MOCK"
+    },
+    "is_primary": {
+      "type": "boolean",
+      "default": false
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "label",
+    "university_code",
+    "major_code",
+    "year",
+    "method"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

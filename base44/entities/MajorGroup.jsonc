@@ -1,0 +1,70 @@
+{
+  "name": "MajorGroup",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "M\u00e3 nh\u00f3m ng\u00e0nh, vd it, business, health"
+    },
+    "name": {
+      "type": "string",
+      "description": "T\u00ean nh\u00f3m ng\u00e0nh ti\u1ebfng Vi\u1ec7t"
+    },
+    "riasec_codes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "R",
+          "I",
+          "A",
+          "S",
+          "E",
+          "C"
+        ]
+      },
+      "description": "M\u00e3 RIASEC ph\u00f9 h\u1ee3p, s\u1eafp x\u1ebfp theo \u0111\u1ed9 \u01b0u ti\u00ean"
+    },
+    "description": {
+      "type": "string",
+      "description": "M\u00f4 t\u1ea3 nh\u00f3m ng\u00e0nh"
+    },
+    "careers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ngh\u1ec1 nghi\u1ec7p li\u00ean quan"
+    },
+    "watch_out": {
+      "type": "string",
+      "description": "L\u01b0u \u00fd v\u1ec1 nh\u00f3m ng\u00e0nh"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "code",
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

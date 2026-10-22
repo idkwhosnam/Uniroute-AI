@@ -1,0 +1,181 @@
+{
+  "name": "StudentProfile",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "description": "H\u1ecd t\u00ean h\u1ecdc sinh"
+    },
+    "school": {
+      "type": "string",
+      "description": "Tr\u01b0\u1eddng THPT"
+    },
+    "grade": {
+      "type": "number",
+      "enum": [
+        10,
+        11,
+        12
+      ],
+      "description": "Kh\u1ed1i l\u1edbp"
+    },
+    "school_year": {
+      "type": "string",
+      "description": "N\u0103m h\u1ecdc, vd 2025-2026"
+    },
+    "home_address": {
+      "type": "string",
+      "description": "\u0110\u1ecba ch\u1ec9 nh\u00e0"
+    },
+    "phone": {
+      "type": "string",
+      "description": "S\u1ed1 \u0111i\u1ec7n tho\u1ea1i"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female",
+        "other"
+      ],
+      "description": "Gi\u1edbi t\u00ednh"
+    },
+    "date_of_birth": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y sinh"
+    },
+    "interests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "S\u1edf th\u00edch \u0111\u00e3 ch\u1ecdn"
+    },
+    "declared_direction": {
+      "type": "string",
+      "description": "\u0110\u1ecbnh h\u01b0\u1edbng \u0111\u00e3 n\u00eau"
+    },
+    "has_thpt_subjects": {
+      "type": "boolean",
+      "default": false,
+      "description": "H\u1ecdc sinh \u0111\u00e3 c\u00f3 m\u00f4n h\u1ecdc l\u1ef1a ch\u1ecdn t\u1ea1i THPT hay ch\u01b0a"
+    },
+    "thpt_electives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "4 m\u00f4n h\u1ecdc l\u1ef1a ch\u1ecdn THPT \u0111\u00e3 khai b\u00e1o (m\u00e3 m\u00f4n)"
+    },
+    "thpt_cluster_subjects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "3 m\u00f4n thu\u1ed9c c\u1ee5m chuy\u00ean \u0111\u1ec1 h\u1ecdc t\u1eadp \u0111\u00e3 khai b\u00e1o (m\u00e3 m\u00f4n)"
+    },
+    "school_subject_options": {
+      "type": "array",
+      "description": "C\u00e1c ph\u01b0\u01a1ng \u00e1n m\u00f4n h\u1ecdc tr\u00ean phi\u1ebfu c\u1ee7a tr\u01b0\u1eddng do h\u1ecdc sinh nh\u1eadp \u1edf b\u01b0\u1edbc t\u01b0 v\u1ea5n l\u1edbp 10",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "T\u00ean ph\u01b0\u01a1ng \u00e1n tr\u00ean phi\u1ebfu, vd T\u1ed5 h\u1ee3p 1"
+          },
+          "electives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "4 m\u00f4n h\u1ecdc l\u1ef1a ch\u1ecdn"
+          },
+          "cluster_subjects": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "3 m\u00f4n thu\u1ed9c c\u1ee5m chuy\u00ean \u0111\u1ec1 h\u1ecdc t\u1eadp"
+          }
+        },
+        "required": [
+          "name",
+          "electives",
+          "cluster_subjects"
+        ]
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "description": "Ch\u1ee9ng ch\u1ec9 ngo\u1ea1i ng\u1eef / \u0111\u00e1nh gi\u00e1 n\u0103ng l\u1ef1c (IELTS, SAT, HSA)",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "ielts",
+              "sat",
+              "hsa",
+              "other"
+            ],
+            "description": "Lo\u1ea1i ch\u1ee9ng ch\u1ec9"
+          },
+          "label": {
+            "type": "string",
+            "description": "T\u00ean hi\u1ec3n th\u1ecb c\u1ee7a lo\u1ea1i ch\u1ee9ng ch\u1ec9"
+          },
+          "score": {
+            "type": "number",
+            "description": "\u0110i\u1ec3m ch\u1ee9ng ch\u1ec9"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Thang \u0111i\u1ec3m c\u1ee7a ch\u1ee9ng ch\u1ec9, vd 9 v\u1edbi IELTS, 1600 v\u1edbi SAT"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Ng\u00e0y thi / ng\u00e0y c\u1ea5p"
+          },
+          "note": {
+            "type": "string",
+            "description": "Ghi ch\u00fa"
+          }
+        },
+        "required": [
+          "type",
+          "score"
+        ]
+      }
+    },
+    "onboarded": {
+      "type": "boolean",
+      "default": false,
+      "description": "\u0110\u00e3 ho\u00e0n t\u1ea5t onboarding"
+    }
+  },
+  "required": [
+    "full_name",
+    "grade"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

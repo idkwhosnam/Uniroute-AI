@@ -1,0 +1,131 @@
+{
+  "name": "AdmissionProgram",
+  "type": "object",
+  "properties": {
+    "university_code": {
+      "type": "string",
+      "description": "M\u00e3 tr\u01b0\u1eddng (tham chi\u1ebfu University.code)"
+    },
+    "university_name": {
+      "type": "string"
+    },
+    "major_code": {
+      "type": "string",
+      "description": "M\u00e3 ng\u00e0nh (tham chi\u1ebfu Major.code)"
+    },
+    "major_name": {
+      "type": "string"
+    },
+    "year": {
+      "type": "number",
+      "description": "N\u0103m x\u00e9t tuy\u1ec3n"
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "thpt",
+        "aptitude",
+        "cert",
+        "combo"
+      ],
+      "description": "Ph\u01b0\u01a1ng th\u1ee9c: THPT, N\u0103ng l\u1ef1c, Ch\u1ee9ng ch\u1ec9, K\u1ebft h\u1ee3p"
+    },
+    "method_label": {
+      "type": "string"
+    },
+    "combination": {
+      "type": "string",
+      "description": "M\u00e3 t\u1ed5 h\u1ee3p x\u00e9t tuy\u1ec3n, vd A01, D01"
+    },
+    "combination_subjects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "C\u00e1c m\u00f4n trong t\u1ed5 h\u1ee3p"
+    },
+    "benchmark_score": {
+      "type": "number",
+      "description": "\u0110i\u1ec3m chu\u1ea9n"
+    },
+    "benchmark_scale": {
+      "type": "number",
+      "default": 30,
+      "description": "Thang \u0111i\u1ec3m (10 ho\u1eb7c 30)"
+    },
+    "benchmark_year": {
+      "type": "number",
+      "description": "N\u0103m c\u1ee7a \u0111i\u1ec3m chu\u1ea9n (c\u00f3 th\u1ec3 kh\u00e1c n\u0103m x\u00e9t tuy\u1ec3n)"
+    },
+    "conditions": {
+      "type": "string",
+      "description": "\u0110i\u1ec1u ki\u1ec7n k\u00e8m theo"
+    },
+    "quota": {
+      "type": "number",
+      "description": "Ch\u1ec9 ti\u00eau"
+    },
+    "tuition": {
+      "type": "number",
+      "description": "H\u1ecdc ph\u00ed (tri\u1ec7u/n\u0103m)"
+    },
+    "source_name": {
+      "type": "string",
+      "description": "T\u00ean ngu\u1ed3n d\u1eef li\u1ec7u"
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL ngu\u1ed3n"
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y c\u00f4ng b\u1ed1"
+    },
+    "verified_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y x\u00e1c minh"
+    },
+    "data_status": {
+      "type": "string",
+      "enum": [
+        "MOCK",
+        "UNVERIFIED",
+        "VERIFIED"
+      ],
+      "default": "MOCK"
+    },
+    "is_mock": {
+      "type": "boolean",
+      "default": true
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "university_code",
+    "major_code",
+    "year",
+    "method"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "name": "AcademicRecord",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "description": "T\u00ean k\u1ef3/th\u1eddi \u0111i\u1ec3m, vd L\u1edbp 10 K\u1ef3 1"
+    },
+    "grade_level": {
+      "type": "number",
+      "enum": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "description": "Kh\u1ed1i l\u1edbp"
+    },
+    "term": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2",
+        "full"
+      ],
+      "description": "H\u1ecdc k\u1ef3"
+    },
+    "score_type": {
+      "type": "string",
+      "enum": [
+        "transcript",
+        "aptitude_test",
+        "trial_exam"
+      ],
+      "description": "H\u1ecdc b\u1ea1 / Ki\u1ec3m tra n\u0103ng l\u1ef1c / Thi th\u1eed"
+    },
+    "scores": {
+      "type": "object",
+      "description": "Map key m\u00f4n -> \u0111i\u1ec3m s\u1ed1, vd {toan: 8.5, van: 7.2}"
+    },
+    "scale": {
+      "type": "number",
+      "default": 10,
+      "description": "Thang \u0111i\u1ec3m, vd 10 ho\u1eb7c 30"
+    },
+    "recorded_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y ghi nh\u1eadn"
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "label",
+    "score_type",
+    "scale"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

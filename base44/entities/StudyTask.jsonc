@@ -1,0 +1,117 @@
+{
+  "name": "StudyTask",
+  "type": "object",
+  "properties": {
+    "target_id": {
+      "type": "string",
+      "description": "Tham chi\u1ebfu AdmissionTarget"
+    },
+    "plan_id": {
+      "type": "string",
+      "description": "Tham chi\u1ebfu StudyPlan"
+    },
+    "subject_key": {
+      "type": "string",
+      "description": "M\u00e3 m\u00f4n c\u1ea7n \u00f4n"
+    },
+    "subject_label": {
+      "type": "string"
+    },
+    "week_number": {
+      "type": "number",
+      "description": "Tu\u1ea7n th\u1ee9 m\u1ea5y trong k\u1ebf ho\u1ea1ch"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Ch\u1ee7 \u0111\u1ec1/ch\u01b0\u01a1ng c\u1ee5 th\u1ec3 c\u1ea7n \u00f4n"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u0110i\u1ec1u ki\u1ec7n ti\u00ean quy\u1ebft (ch\u1ee7 \u0111\u1ec1 ph\u1ea3i ho\u00e0n th\u00e0nh tr\u01b0\u1edbc)"
+    },
+    "duration_hours": {
+      "type": "number",
+      "description": "Th\u1eddi l\u01b0\u1ee3ng \u01b0\u1edbc t\u00ednh (gi\u1edd)"
+    },
+    "current_score": {
+      "type": "number",
+      "description": "\u0110i\u1ec3m hi\u1ec7n t\u1ea1i (t\u1eeb h\u1ecdc l\u1ef1c, null n\u1ebfu ch\u01b0a c\u00f3 ch\u1ea9n \u0111o\u00e1n)"
+    },
+    "target_score": {
+      "type": "number",
+      "description": "\u0110i\u1ec3m m\u1ee5c ti\u00eau"
+    },
+    "gap": {
+      "type": "number",
+      "description": "Kho\u1ea3ng c\u00e1ch c\u1ea7n l\u1ea5p (null n\u1ebfu ch\u01b0a c\u00f3 ch\u1ea9n \u0111o\u00e1n)"
+    },
+    "has_diagnostic": {
+      "type": "boolean",
+      "default": false,
+      "description": "C\u00f3 d\u1eef li\u1ec7u ch\u1ea9n \u0111o\u00e1n h\u1ecdc l\u1ef1c kh\u00f4ng"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ],
+      "default": "medium"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "todo",
+        "in_progress",
+        "done",
+        "archived"
+      ],
+      "default": "todo"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y ho\u00e0n th\u00e0nh"
+    },
+    "test_score": {
+      "type": "number",
+      "description": "\u0110i\u1ec3m ki\u1ec3m tra/thi th\u1eed g\u1ea7n nh\u1ea5t"
+    },
+    "test_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y ki\u1ec3m tra"
+    },
+    "archived": {
+      "type": "boolean",
+      "default": false,
+      "description": "true = nhi\u1ec7m v\u1ee5 c\u0169 khi \u0111\u1ed5i m\u1ee5c ti\u00eau, b\u1ea3o to\u00e0n l\u1ecbch s\u1eed"
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "subject_key",
+    "subject_label"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

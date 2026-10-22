@@ -1,0 +1,77 @@
+{
+  "name": "SubjectSelection",
+  "type": "object",
+  "properties": {
+    "year": {
+      "type": "number",
+      "description": "N\u0103m h\u1ecdc"
+    },
+    "school_year": {
+      "type": "string",
+      "description": "N\u0103m h\u1ecdc, vd 2025-2026"
+    },
+    "compulsory": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "M\u00f4n b\u1eaft bu\u1ed9c \u0111\u00e3 x\u00e1c nh\u1eadn"
+    },
+    "electives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "4 m\u00f4n t\u1ef1 ch\u1ecdn \u0111\u00e3 ch\u1ecdn"
+    },
+    "cluster_code": {
+      "type": "string",
+      "description": "C\u1ee5m chuy\u00ean \u0111\u1ec1 \u0111\u00e3 ch\u1ecdn"
+    },
+    "cluster_name": {
+      "type": "string"
+    },
+    "is_valid": {
+      "type": "boolean",
+      "default": false
+    },
+    "validation_errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "score_breakdown": {
+      "type": "object",
+      "description": "\u0110i\u1ec3m t\u1eebng ti\u00eau ch\u00ed"
+    },
+    "total_score": {
+      "type": "number",
+      "description": "T\u1ed5ng \u0111i\u1ec3m x\u1ebfp h\u1ea1ng 0-100"
+    },
+    "plan_id": {
+      "type": "string",
+      "description": "ID ph\u01b0\u01a1ng \u00e1n \u0111\u00e3 ch\u1ecdn"
+    },
+    "plan_name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "year"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

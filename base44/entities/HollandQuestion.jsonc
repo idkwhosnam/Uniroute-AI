@@ -1,0 +1,58 @@
+{
+  "name": "HollandQuestion",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "M\u00e3 c\u00e2u h\u1ecfi, vd hq_r_01"
+    },
+    "riasec": {
+      "type": "string",
+      "enum": [
+        "R",
+        "I",
+        "A",
+        "S",
+        "E",
+        "C"
+      ],
+      "description": "Nh\u00f3m RIASEC: Realistic, Investigative, Artistic, Social, Enterprising, Conventional"
+    },
+    "text": {
+      "type": "string",
+      "description": "N\u1ed9i dung c\u00e2u h\u1ecfi ti\u1ebfng Vi\u1ec7t"
+    },
+    "order": {
+      "type": "number",
+      "description": "Th\u1ee9 t\u1ef1 hi\u1ec3n th\u1ecb"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "code",
+    "riasec",
+    "text",
+    "order"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

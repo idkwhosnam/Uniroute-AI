@@ -1,0 +1,58 @@
+{
+  "name": "DataSource",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "T\u00ean ngu\u1ed3n d\u1eef li\u1ec7u"
+    },
+    "url": {
+      "type": "string",
+      "description": "URL ngu\u1ed3n"
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y c\u00f4ng b\u1ed1"
+    },
+    "verified_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y x\u00e1c minh"
+    },
+    "data_status": {
+      "type": "string",
+      "enum": [
+        "MOCK",
+        "UNVERIFIED",
+        "VERIFIED"
+      ],
+      "default": "MOCK",
+      "description": "Tr\u1ea1ng th\u00e1i d\u1eef li\u1ec7u"
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

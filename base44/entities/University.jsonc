@@ -1,0 +1,67 @@
+{
+  "name": "University",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "M\u00e3 tr\u01b0\u1eddng, vd tmu, neu, hust, ueb, hanu"
+    },
+    "name": {
+      "type": "string",
+      "description": "T\u00ean \u0111\u1ea7y \u0111\u1ee7 tr\u01b0\u1eddng \u0111\u1ea1i h\u1ecdc"
+    },
+    "short_name": {
+      "type": "string",
+      "description": "T\u00ean vi\u1ebft t\u1eaft"
+    },
+    "district": {
+      "type": "string",
+      "description": "Qu\u1eadn/huy\u1ec7n"
+    },
+    "website": {
+      "type": "string",
+      "description": "Trang web ch\u00ednh th\u1ee9c"
+    },
+    "is_mock": {
+      "type": "boolean",
+      "default": true,
+      "description": "true = d\u1eef li\u1ec7u minh h\u1ecda, false = \u0111\u00e3 x\u00e1c minh"
+    },
+    "data_status": {
+      "type": "string",
+      "enum": [
+        "MOCK",
+        "UNVERIFIED",
+        "VERIFIED"
+      ],
+      "default": "MOCK",
+      "description": "Tr\u1ea1ng th\u00e1i d\u1eef li\u1ec7u"
+    },
+    "note": {
+      "type": "string",
+      "description": "Ghi ch\u00fa v\u1ec1 tr\u01b0\u1eddng"
+    }
+  },
+  "required": [
+    "code",
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

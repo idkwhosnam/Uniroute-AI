@@ -1,0 +1,66 @@
+{
+  "name": "HollandResult",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "type": "string",
+      "description": "ID phi\u00ean l\u00e0m b\u00e0i"
+    },
+    "scores": {
+      "type": "object",
+      "description": "\u0110i\u1ec3m 6 nh\u00f3m RIASEC: {R: 25, I: 30, A: 15, S: 20, E: 18, C: 22}"
+    },
+    "holland_code": {
+      "type": "string",
+      "description": "M\u00e3 Holland 3 ch\u1eef c\u00e1i, vd ISA"
+    },
+    "top_groups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "3 nh\u00f3m RIASEC n\u1ed5i b\u1eadt"
+    },
+    "recommended_major_groups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "M\u00e3 nh\u00f3m ng\u00e0nh \u0111\u1ec1 xu\u1ea5t"
+    },
+    "selected_major_groups": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Nh\u00f3m ng\u00e0nh h\u1ecdc sinh \u0111\u00e3 ch\u1ecdn quan t\u00e2m"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scoring_version": {
+      "type": "string",
+      "description": "Phi\u00ean b\u1ea3n quy t\u1eafc ch\u1ea5m"
+    }
+  },
+  "required": [
+    "session_id",
+    "scores",
+    "holland_code"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}

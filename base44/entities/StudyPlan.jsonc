@@ -1,0 +1,85 @@
+{
+  "name": "StudyPlan",
+  "type": "object",
+  "properties": {
+    "target_id": {
+      "type": "string",
+      "description": "Tham chi\u1ebfu AdmissionTarget"
+    },
+    "target_label": {
+      "type": "string",
+      "description": "Nh\u00e3n hi\u1ec3n th\u1ecb m\u1ee5c ti\u00eau"
+    },
+    "exam_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Ng\u00e0y thi"
+    },
+    "weekly_hours": {
+      "type": "number",
+      "description": "S\u1ed1 gi\u1edd h\u1ecdc/tu\u1ea7n kh\u1ea3 d\u1ee5ng"
+    },
+    "total_weeks": {
+      "type": "number",
+      "description": "T\u1ed5ng s\u1ed1 tu\u1ea7n t\u1eeb nay \u0111\u1ebfn ng\u00e0y thi"
+    },
+    "total_hours_needed": {
+      "type": "number",
+      "description": "T\u1ed5ng gi\u1edd c\u1ea7n thi\u1ebft"
+    },
+    "total_hours_available": {
+      "type": "number",
+      "description": "T\u1ed5ng gi\u1edd kh\u1ea3 d\u1ee5ng"
+    },
+    "feasibility_status": {
+      "type": "string",
+      "enum": [
+        "feasible",
+        "tight",
+        "insufficient"
+      ],
+      "default": "feasible"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "C\u1ea3nh b\u00e1o t\u00ednh kh\u1ea3 thi"
+    },
+    "suggestions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ph\u01b0\u01a1ng \u00e1n \u0111i\u1ec1u ch\u1ec9nh"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "target_id",
+    "exam_date",
+    "weekly_hours"
+  ],
+  "rls": {
+    "read": {
+      "created_by_id": "{{user.id}}"
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "created_by_id": "{{user.id}}"
+    },
+    "delete": {
+      "created_by_id": "{{user.id}}"
+    }
+  }
+}
